@@ -1,3 +1,4 @@
+import { h } from 'vue';
 import { defineComponent as _defineComponent } from 'vue';
 import { createElementVNode as _createElementVNode } from 'vue';
 import { createVNode as _createVNode } from 'vue';
@@ -211,7 +212,7 @@ const __exports = (() => {
         size: 20
       }];
       return (_ctx, _cache) => {
-        return _openBlock(), _createElementBlock("section", _hoisted_1, [_cache[4] || (_cache[4] = _createElementVNode("div", {
+        return _openBlock(), _createElementBlock("section", _hoisted_1, [h('img', {src: '/illustrations/mail.webp', alt: 'Мешочек выглядывает из конверта с добрым письмом', width: 384, height: 256, loading: 'lazy', class: 'bag-vignette'}), _cache[4] || (_cache[4] = _createElementVNode("div", {
           class: "absolute inset-0 pointer-events-none overflow-hidden",
           "data-srcloc": "/pud-smeha-ha/components/MailSection.vue:4"
         }, [_createElementVNode("div", {

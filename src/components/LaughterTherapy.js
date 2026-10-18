@@ -1,3 +1,7 @@
+import { withFullRendering } from '../legacy-render.js';
+import { h, watch } from 'vue';
+import { readCollection, saveCollection } from '../collection.js';
+import { downloadPostcard } from '../postcard.js';
 import { defineComponent as _defineComponent } from 'vue';
 import { createElementVNode as _createElementVNode } from 'vue';
 import { createVNode as _createVNode } from 'vue';
@@ -130,7 +134,7 @@ const __exports = (() => {
     class: "mt-4 flex flex-wrap justify-center gap-2",
     "data-srcloc": "/pud-smeha-ha/components/LaughterTherapy.vue:190"
   };
-  const _hoisted_26 = ["title"];
+  const _hoisted_26 = ["title", "aria-pressed", "aria-label", "onClick"];
   const _hoisted_27 = {
     class: "text-lg",
     "data-srcloc": "/pud-smeha-ha/components/LaughterTherapy.vue:197"
@@ -181,7 +185,7 @@ const __exports = (() => {
         text: 'Мороженое тает — но оставляет сладкое послевкусие. Как хорошая улыбка!'
       }, {
         emoji: '🫐',
-        text: 'Черника улучшает зрение — чтобы ты лучше видел хорошее вокруг!'
+        text: 'Черника оставляет следы на пальцах, а добрая шутка — в памяти. Оба варианта прекрасны.'
       }, {
         emoji: '🧸',
         text: 'У каждого взрослого внутри живёт маленький ребёнок. Погладь его по головке!'
@@ -249,7 +253,7 @@ const __exports = (() => {
         text: 'Если жизнь даёт тебе лимоны — сделай лимонад, добавь джина, позови друзей и устрой вечеринку!'
       }, {
         emoji: '🤪',
-        text: 'Попробуй сейчас сделать смешное лицо в зеркале. Сделал? Поздравляю — ты вылечился!'
+        text: 'Попробуй сейчас сделать смешное лицо в зеркале. Сделал? Поздравляю — зеркало тоже повеселилось!'
       }, {
         emoji: '✨',
         text: 'Ты — звёздная пыль, которая научилась шутить. Гравитация не одобряет, но нам плевать!'
@@ -344,6 +348,31 @@ const __exports = (() => {
       const showSparkles = ref(false);
       // Discovered quotes collector
       const discoveredQuotes = ref([]);
+      const storageMessage = ref('');
+      const downloadMessage = ref('');
+      const downloading = ref(false);
+      const selectedQuote = ref(null);
+      const allQuotes = [...lightQuotes, ...mediumQuotes, ...strongQuotes];
+      try {
+        const saved = readCollection(window.localStorage, allQuotes);
+        discoveredQuotes.value = saved.quotes;
+        totalDoses.value = saved.total;
+        if (!saved.available) storageMessage.value = 'Не удалось прочитать коллекцию. Новые открытки попробуем сохранить снова.';
+      } catch { storageMessage.value = 'Браузер не разрешает сохранение. Открытки доступны до закрытия страницы.'; }
+      watch([discoveredQuotes, totalDoses], () => {
+        try {
+          const ok = saveCollection(window.localStorage, discoveredQuotes.value, totalDoses.value);
+          storageMessage.value = ok ? '' : 'Браузер не разрешает сохранение. Скачайте понравившиеся открытки перед закрытием страницы.';
+        } catch { storageMessage.value = 'Не удалось сохранить коллекцию. Скачайте понравившиеся открытки.'; }
+      }, {deep: true});
+      async function savePostcard(quote) {
+        if (downloading.value) return;
+        downloading.value = true;
+        downloadMessage.value = 'Готовим открытку…';
+        try { await downloadPostcard(quote); downloadMessage.value = 'Открытка готова. Если загрузка не началась, нажмите ещё раз.'; }
+        catch(error) { downloadMessage.value = error.message || 'Не удалось скачать открытку. Попробуйте ещё раз.'; }
+        finally { downloading.value = false; }
+      }
       const totalUniqueQuotes = computed(() => lightQuotes.length + mediumQuotes.length + strongQuotes.length);
       // ─── COMPUTED ──────────────────────────────────────────────
       const normBarClass = computed(() => {
@@ -390,7 +419,7 @@ const __exports = (() => {
         if (totalDoses.value === 1) {
           showMilestone('🌱', 'Первая доза! Путь к счастью начат!');
         } else if (totalDoses.value === 3) {
-          showMilestone('✅', 'Дневная норма выполнена! Ты официально счастлив!');
+          showMilestone('✅', 'Три улыбки в коллекцию! Мешочек доволен!');
         } else if (totalDoses.value === 5) {
           showMilestone('🎖️', '5 доз! Ты — серебряный пациент смехотерапии!');
         } else if (totalDoses.value === 10) {
@@ -525,7 +554,7 @@ const __exports = (() => {
         if (sectionRef.value) observer.observe(sectionRef.value);
       });
       return (_ctx, _cache) => {
-        return _openBlock(), _createElementBlock("section", _hoisted_1, [_cache[15] || (_cache[15] = _createElementVNode("div", {
+        return _openBlock(), _createElementBlock("section", { ..._hoisted_1, id: 'therapy', tabindex: '-1', 'aria-label': 'Срочная смехотерапия' }, [_cache[15] || (_cache[15] = _createElementVNode("div", {
           class: "absolute inset-0 pointer-events-none overflow-hidden",
           "data-srcloc": "/pud-smeha-ha/components/LaughterTherapy.vue:4"
         }, [_createElementVNode("div", {
@@ -684,7 +713,7 @@ const __exports = (() => {
           }, [_createElementVNode("div", {
             class: _normalizeClass(["text-6xl mb-4", quoteAnimClass.value]),
             "data-srcloc": "/pud-smeha-ha/components/LaughterTherapy.vue:152"
-          }, _toDisplayString(activeQuote.value.emoji), 3), _createElementVNode("p", _hoisted_19, _toDisplayString(activeQuote.value.text), 1), _createElementVNode("div", _hoisted_20, [(_openBlock(true), _createElementBlock(_Fragment, null, _renderList(dosePower.value, n => {
+          }, _toDisplayString(activeQuote.value.emoji), 3), _createElementVNode("p", _hoisted_19, _toDisplayString(activeQuote.value.text), 1), h('button', {type: 'button', class: 'bag-button postcard-download', disabled: downloading.value, onClick: () => savePostcard(activeQuote.value)}, downloading.value ? 'Готовим открытку…' : 'Скачать открытку'),  _createElementVNode("div", _hoisted_20, [(_openBlock(true), _createElementBlock(_Fragment, null, _renderList(dosePower.value, n => {
             return _openBlock(), _createElementBlock("span", {
               key: n,
               class: _normalizeClass(["inline-block w-2.5 h-2.5 rounded-full dose-dot", doseDotClass.value]),
@@ -704,7 +733,7 @@ const __exports = (() => {
             "transition": "all 0.8s ease-out 0.6s"
           },
           "data-srcloc": "/pud-smeha-ha/components/LaughterTherapy.vue:175"
-        }, [_createElementVNode("details", _hoisted_22, [_createElementVNode("summary", _hoisted_23, [_cache[11] || (_cache[11] = _createElementVNode("i", {
+        }, [h('p', {class: 'collection-note', role: 'status'}, storageMessage.value || 'Коллекция сохраняется в этом браузере на вашем устройстве.'), h('p', {class: 'collection-note', role: 'status'}, downloadMessage.value), selectedQuote.value ? h('div', {class: 'collected-preview'}, [h('p', {}, selectedQuote.value.text), h('button', {type: 'button', class: 'bag-button', disabled: downloading.value, onClick: () => savePostcard(selectedQuote.value)}, 'Скачать эту открытку')]) : _createCommentVNode('', true), _createElementVNode("details", _hoisted_22, [_createElementVNode("summary", _hoisted_23, [_cache[11] || (_cache[11] = _createElementVNode("i", {
           class: "fas fa-book-open text-xs",
           "data-srcloc": "/pud-smeha-ha/components/LaughterTherapy.vue:182"
         }, null, -1)), _createTextVNode(" Коллекция открыток: " + _toDisplayString(discoveredQuotes.value.length) + " из " + _toDisplayString(totalUniqueQuotes.value) + " ", 1), _cache[12] || (_cache[12] = _createElementVNode("i", {
@@ -714,7 +743,11 @@ const __exports = (() => {
           class: "fas fa-spinner text-xs animate-spin mr-1",
           "data-srcloc": "/pud-smeha-ha/components/LaughterTherapy.vue:187"
         }, null, -1), _createTextVNode(" Принимайте дозы, чтобы собрать коллекцию! ", -1)]))])) : (_openBlock(), _createElementBlock("div", _hoisted_25, [(_openBlock(true), _createElementBlock(_Fragment, null, _renderList(discoveredQuotes.value, (q, i) => {
-          return _openBlock(), _createElementBlock("div", {
+          return _openBlock(), _createElementBlock("button", {
+            type: 'button',
+            'aria-label': q.text,
+            'aria-pressed': selectedQuote.value?.text === q.text,
+            onClick: () => {selectedQuote.value = q;},
             key: i,
             class: "discovered-badge",
             title: q.text,
@@ -747,4 +780,4 @@ const __exports = (() => {
   __exports.default = __default_1;
   return __exports;
 })();
-export default __exports.default;
+export default withFullRendering(__exports.default);

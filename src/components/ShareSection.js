@@ -76,7 +76,7 @@ const __exports = (() => {
       const sectionRef = ref(null);
       const currentUrl = ref('');
       onMounted(() => {
-        currentUrl.value = window.location.href;
+        currentUrl.value = window.location.origin + window.location.pathname;
         const observer = new IntersectionObserver(entries => {
           const entry = entries[0];
           if (entry?.isIntersecting) {
@@ -141,7 +141,7 @@ const __exports = (() => {
         }, " Поделись смехом — и он приумножится! ", -1), _createElementVNode("p", {
           class: "text-stone-500 text-lg max-w-md mx-auto",
           "data-srcloc": "/pud-smeha-ha/components/ShareSection.vue:12"
-        }, " Отправь эту страницу тому, кто сейчас особенно нуждается в улыбке. Это бесплатно и работает лучше любого лекарства! ", -1)]))], 2), _createElementVNode("div", {
+        }, " Отправь эту страницу тому, кому сегодня пригодится маленькая радость. ", -1)]))], 2), _createElementVNode("div", {
           class: _normalizeClass(["flex flex-wrap justify-center gap-4 mb-8", visible.value ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10']),
           style: {
             "transition": "all 0.8s ease-out 0.3s"

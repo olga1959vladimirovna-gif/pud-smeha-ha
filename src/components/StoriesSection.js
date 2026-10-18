@@ -1,3 +1,4 @@
+import { h } from 'vue';
 import { defineComponent as _defineComponent } from 'vue';
 import { createElementVNode as _createElementVNode } from 'vue';
 import { createVNode as _createVNode } from 'vue';
@@ -274,7 +275,7 @@ const __exports = (() => {
         if (sectionRef.value) observer.observe(sectionRef.value);
       });
       return (_ctx, _cache) => {
-        return _openBlock(), _createElementBlock("section", _hoisted_1, [_cache[6] || (_cache[6] = _createElementVNode("div", {
+        return _openBlock(), _createElementBlock("section", { ..._hoisted_1, id: 'stories' }, [h('figure', {class: 'bag-illustration'}, [h('img', {src: '/illustrations/tea.webp', alt: 'Бабушка и Мешочек делятся байками за чашкой чая', width: 384, height: 256, loading: 'lazy', class: 'bag-vignette'}), h('figcaption', {}, 'У каждой доброй байки есть своё тёплое место.')]), _cache[6] || (_cache[6] = _createElementVNode("div", {
           class: "absolute inset-0 pointer-events-none",
           "data-srcloc": "/pud-smeha-ha/components/StoriesSection.vue:4"
         }, [_createElementVNode("div", {

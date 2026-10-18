@@ -1,3 +1,5 @@
+import { withFullRendering } from '../legacy-render.js';
+import { h, ref } from 'vue';
 import { defineComponent as _defineComponent } from 'vue';
 import { createVNode as _createVNode } from 'vue';
 import { createElementVNode as _createElementVNode } from 'vue';
@@ -36,7 +38,7 @@ const __exports = (() => {
     class: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6",
     "data-srcloc": "/pud-smeha-ha/components/SymptomsSection.vue:18"
   };
-  const _hoisted_4 = ["onClick"];
+  const _hoisted_4 = ["onClick", "aria-expanded"];
   const _hoisted_5 = {
     class: "flex items-start gap-4",
     "data-srcloc": "/pud-smeha-ha/components/SymptomsSection.vue:26"
@@ -102,7 +104,7 @@ const __exports = (() => {
         emoji: '🔄',
         title: 'Грустный скроллинг',
         teaser: 'Листаешь ленту — и настроение падает быстрее курса биткоина',
-        reveal: 'Алгоритмы соцсетей не хотят, чтобы ты смеялся (смех — контент, который нельзя монетизировать). Устрой себе digital-детокс и включи стендап — вылечишься!'
+        reveal: 'Если лента утомила, её можно ненадолго закрыть. Например, ради смешного разговора с другом. Телефон переживёт разлуку — обещает Мешочек.'
       }, {
         emoji: '😤',
         title: 'Серьёзность — вторая натура',
@@ -206,14 +208,17 @@ const __exports = (() => {
         size: 22
       }];
       const openCards = reactive({});
+      const showAll = ref(false);
       function toggleCard(index) {
         openCards[index] = !openCards[index];
       }
       return (_ctx, _cache) => {
         return _openBlock(), _createElementBlock("section", _hoisted_1, [_createVNode(FloatingEmojis, {
           emojis: symptomsEmojis
-        }), _createElementVNode("div", _hoisted_2, [_cache[3] || (_cache[3] = _createStaticVNode("<div class=\"text-center mb-12\" data-srcloc=\"/pud-smeha-ha/components/SymptomsSection.vue:7\" data-v-8971f3c2><span class=\"inline-block text-4xl mb-2\" data-srcloc=\"/pud-smeha-ha/components/SymptomsSection.vue:8\" data-v-8971f3c2>🔍</span><h2 class=\"text-3xl md:text-4xl font-bold text-stone-800 mb-3\" data-srcloc=\"/pud-smeha-ha/components/SymptomsSection.vue:9\" data-v-8971f3c2> Диагноз: <span class=\"bg-gradient-to-r from-rose-500 to-amber-500 bg-clip-text text-transparent\" data-srcloc=\"/pud-smeha-ha/components/SymptomsSection.vue:10\" data-v-8971f3c2>смеходефицит</span></h2><p class=\"text-stone-500 text-lg max-w-xl mx-auto\" data-srcloc=\"/pud-smeha-ha/components/SymptomsSection.vue:12\" data-v-8971f3c2> Проверь, не пора ли пополнить запасы веселья? </p></div>", 1)), _createElementVNode("div", _hoisted_3, [(_openBlock(), _createElementBlock(_Fragment, null, _renderList(symptoms, (symptom, index) => {
-          return _createElementVNode("div", {
+        }), _createElementVNode("div", _hoisted_2, [_cache[3] || (_cache[3] = _createStaticVNode("<div class=\"text-center mb-12\" data-srcloc=\"/pud-smeha-ha/components/SymptomsSection.vue:7\" data-v-8971f3c2><span class=\"inline-block text-4xl mb-2\" data-srcloc=\"/pud-smeha-ha/components/SymptomsSection.vue:8\" data-v-8971f3c2>🔍</span><h2 class=\"text-3xl md:text-4xl font-bold text-stone-800 mb-3\" data-srcloc=\"/pud-smeha-ha/components/SymptomsSection.vue:9\" data-v-8971f3c2> Диагноз: <span class=\"bg-gradient-to-r from-rose-500 to-amber-500 bg-clip-text text-transparent\" data-srcloc=\"/pud-smeha-ha/components/SymptomsSection.vue:10\" data-v-8971f3c2>смеходефицит</span></h2><p class=\"text-stone-500 text-lg max-w-xl mx-auto\" data-srcloc=\"/pud-smeha-ha/components/SymptomsSection.vue:12\" data-v-8971f3c2> Проверь, не пора ли пополнить запасы веселья? </p></div>", 1)), _createElementVNode("div", _hoisted_3, [(_openBlock(), _createElementBlock(_Fragment, null, _renderList(showAll.value ? symptoms : symptoms.slice(0, 6), (symptom, index) => {
+          return _createElementVNode("button", {
+            type: "button",
+            "aria-expanded": !!openCards[index],
             key: index,
             class: _normalizeClass(["symptom-card bg-white rounded-2xl p-6 border border-stone-100 shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer", {
               'is-open': openCards[index]
@@ -228,13 +233,13 @@ const __exports = (() => {
           }, "👆 Нажми, чтобы узнать больше")], -1))])) : (_openBlock(), _createElementBlock("div", _hoisted_11, [_cache[1] || (_cache[1] = _createElementVNode("h3", {
             class: "font-bold text-lg text-rose-600 mb-2",
             "data-srcloc": "/pud-smeha-ha/components/SymptomsSection.vue:37"
-          }, "✓ Диагноз подтверждён", -1)), _createElementVNode("p", _hoisted_12, _toDisplayString(symptom.reveal), 1), _cache[2] || (_cache[2] = _createElementVNode("div", {
+          }, "✓ Мешочек узнал ситуацию", -1)), _createElementVNode("p", _hoisted_12, _toDisplayString(symptom.reveal), 1), _cache[2] || (_cache[2] = _createElementVNode("div", {
             class: "mt-3 flex items-center gap-1 text-amber-500 text-sm",
             "data-srcloc": "/pud-smeha-ha/components/SymptomsSection.vue:39"
           }, [_createElementVNode("span", {
             "data-srcloc": "/pud-smeha-ha/components/SymptomsSection.vue:40"
           }, "👆 Свернуть")], -1))]))])])], 10, _hoisted_4);
-        }), 64))]), _cache[4] || (_cache[4] = _createElementVNode("div", {
+        }), 128))]), h('div', {class: 'load-more-row'}, [h('button', {type: 'button', class: 'bag-button', 'aria-expanded': showAll.value, onClick: () => { showAll.value = !showAll.value; if (!showAll.value) document.querySelector('.symptoms-section h2')?.scrollIntoView({block: 'start'}); }}, showAll.value ? 'Показать меньше' : 'Ещё из Мешочка · 12')]), _cache[4] || (_cache[4] = _createElementVNode("div", {
           class: "text-center mt-10 text-stone-400 text-sm",
           "data-srcloc": "/pud-smeha-ha/components/SymptomsSection.vue:49"
         }, [_createElementVNode("p", {
@@ -254,4 +259,4 @@ const __exports = (() => {
   __exports.default = __default_1;
   return __exports;
 })();
-export default __exports.default;
+export default withFullRendering(__exports.default);

@@ -1,3 +1,4 @@
+import { h } from 'vue';
 import { defineComponent as _defineComponent } from 'vue';
 import { createElementVNode as _createElementVNode } from 'vue';
 import { createVNode as _createVNode } from 'vue';
@@ -149,7 +150,7 @@ const __exports = (() => {
         if (sectionRef.value) observer.observe(sectionRef.value);
       });
       return (_ctx, _cache) => {
-        return _openBlock(), _createElementBlock("section", _hoisted_1, [_cache[3] || (_cache[3] = _createStaticVNode("<div class=\"absolute inset-0 pointer-events-none overflow-hidden\" data-srcloc=\"/pud-smeha-ha/components/AbsurdLab.vue:4\" data-v-295dea13><div class=\"absolute top-10 right-20 text-6xl opacity-5\" data-srcloc=\"/pud-smeha-ha/components/AbsurdLab.vue:5\" data-v-295dea13>🧪</div><div class=\"absolute bottom-20 left-16 text-5xl opacity-5\" data-srcloc=\"/pud-smeha-ha/components/AbsurdLab.vue:6\" data-v-295dea13>⚗️</div><div class=\"absolute top-1/2 left-1/4 text-4xl opacity-5\" data-srcloc=\"/pud-smeha-ha/components/AbsurdLab.vue:7\" data-v-295dea13>🔬</div><div class=\"bubble bubble-1\" data-srcloc=\"/pud-smeha-ha/components/AbsurdLab.vue:8\" data-v-295dea13></div><div class=\"bubble bubble-2\" data-srcloc=\"/pud-smeha-ha/components/AbsurdLab.vue:9\" data-v-295dea13></div><div class=\"bubble bubble-3\" data-srcloc=\"/pud-smeha-ha/components/AbsurdLab.vue:10\" data-v-295dea13></div></div>", 1)), _createVNode(FloatingEmojis, {
+        return _openBlock(), _createElementBlock("section", { ..._hoisted_1, id: 'absurd-lab' }, [h('img', {src: '/illustrations/lab.webp', alt: 'Ёжик в очках исследует пельмени, которые кружат над чашкой', width: 384, height: 256, loading: 'lazy', class: 'bag-vignette lab-vignette'}), _cache[3] || (_cache[3] = _createStaticVNode("<div class=\"absolute inset-0 pointer-events-none overflow-hidden\" data-srcloc=\"/pud-smeha-ha/components/AbsurdLab.vue:4\" data-v-295dea13><div class=\"absolute top-10 right-20 text-6xl opacity-5\" data-srcloc=\"/pud-smeha-ha/components/AbsurdLab.vue:5\" data-v-295dea13>🧪</div><div class=\"absolute bottom-20 left-16 text-5xl opacity-5\" data-srcloc=\"/pud-smeha-ha/components/AbsurdLab.vue:6\" data-v-295dea13>⚗️</div><div class=\"absolute top-1/2 left-1/4 text-4xl opacity-5\" data-srcloc=\"/pud-smeha-ha/components/AbsurdLab.vue:7\" data-v-295dea13>🔬</div><div class=\"bubble bubble-1\" data-srcloc=\"/pud-smeha-ha/components/AbsurdLab.vue:8\" data-v-295dea13></div><div class=\"bubble bubble-2\" data-srcloc=\"/pud-smeha-ha/components/AbsurdLab.vue:9\" data-v-295dea13></div><div class=\"bubble bubble-3\" data-srcloc=\"/pud-smeha-ha/components/AbsurdLab.vue:10\" data-v-295dea13></div></div>", 1)), _createVNode(FloatingEmojis, {
           emojis: labEmojis
         }), _createElementVNode("div", {
           class: "max-w-3xl mx-auto relative z-10",
@@ -174,7 +175,7 @@ const __exports = (() => {
         }, " 🎲 Лаборатория абсурда ", -1), _createElementVNode("p", {
           class: "text-stone-500 text-lg max-w-xl mx-auto",
           "data-srcloc": "/pud-smeha-ha/components/AbsurdLab.vue:25"
-        }, " Смеши несовместимое — получай улыбку! Нажми на кнопку — и мир станет чуточку смешнее ", -1)]))], 2), _createElementVNode("div", {
+        }, " Смешай несовместимое — получай улыбку! Нажми на кнопку — и мир станет чуточку смешнее ", -1)]))], 2), _createElementVNode("div", {
           class: _normalizeClass(["bg-white/90 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-xl border-2 border-purple-100", visible.value ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10']),
           style: {
             "transition": "all 0.8s ease-out 0.2s"
