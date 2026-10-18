@@ -2,8 +2,11 @@ import { createApp } from 'vue';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './style.css';
 import MainPage from './components/MainPage.js';
+import AdminPage from './moderation/AdminPage.js';
+import './moderation/moderation.css';
 
-createApp(MainPage, {
+const isAdmin = location.pathname.replace(/\/$/, '') === '/admin';
+createApp(isAdmin ? AdminPage : MainPage, isAdmin ? {} : {
   videoUrl: '',
   directMp4Url: '/media/meshochek.mp4',
   videoPoster: '/media/meshochek.jpg',

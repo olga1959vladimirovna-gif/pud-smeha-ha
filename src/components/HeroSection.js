@@ -102,7 +102,7 @@ const __exports = (() => {
           videoUrl: __props.videoUrl,
           directMp4Url: __props.directMp4Url,
           videoPoster: __props.videoPoster
-        }, null, 8, ["videoUrl", "directMp4Url", "videoPoster"])]), h('div', {class: 'hero-actions'}, [h('a', {href: '#therapy', class: 'bag-button bag-button-primary'}, 'Мне срочно нужна улыбка'), h('nav', {class: 'bag-nav', 'aria-label': 'Разделы Мешочка'}, [h('a', {href: '#stories'}, 'Почитать байки'), h('a', {href: '#absurd-lab'}, 'Поиграть')])]), _cache[1] || (_cache[1] = _createElementVNode("div", {
+        }, null, 8, ["videoUrl", "directMp4Url", "videoPoster"])]), h('div', {class: 'hero-actions'}, [h('a', {href: '#therapy', class: 'bag-button bag-button-primary'}, 'Мне срочно нужна улыбка'), h('nav', {class: 'bag-nav', 'aria-label': 'Разделы Мешочка'}, [h('a', {href: '#stories'}, 'Почитать байки'), h('a', {href: '#absurd-lab'}, 'Поиграть'), h('a', {href: '#tell-story'}, 'Рассказать байку')])]), _cache[1] || (_cache[1] = _createElementVNode("div", {
           class: "animate-bounce mt-8",
           "data-srcloc": "/pud-smeha-ha/components/HeroSection.vue:53"
         }, [_createElementVNode("svg", {
