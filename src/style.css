@@ -45,6 +45,22 @@ button:disabled { opacity: .6; cursor: wait; }
 .bag-section-heading h2 { font-size: clamp(28px, 4vw, 38px); line-height: 1.2; font-weight: 700; color: var(--bag-ink); margin: 10px 0 15px; }
 .bag-section-heading p { color: var(--bag-muted); font-size: 18px; line-height: 1.7; }
 .section-emoji { font-size: 36px; }
+.everyday-smile { background: var(--bag-paper); color: var(--bag-ink); }
+.everyday-smile-layout { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.15fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.everyday-smile-picture { margin: 0; width: 100%; max-width: 480px; justify-self: center; }
+.everyday-smile-picture img { display: block; width: 100%; height: auto; aspect-ratio: 1; border: 1px solid var(--bag-line); border-radius: 24px; }
+.everyday-smile-eyebrow { color: var(--bag-honey); font-size: 14px; font-weight: 600; margin: 0 0 12px; }
+.everyday-smile-copy h2 { font-size: clamp(28px, 3.3vw, 40px); line-height: 1.2; font-weight: 700; margin: 0 0 24px; max-width: 18ch; }
+.everyday-smile-copy > p:not(.everyday-smile-eyebrow) { font-size: 17px; line-height: 1.8; margin-bottom: 16px; }
+.everyday-smile-quote { color: var(--bag-honey); }
+.everyday-smile-copy .everyday-smile-invitation { margin: 24px 0; }
+.everyday-smile-invitation strong { font-weight: 650; }
+@media (max-width: 760px) {
+  .everyday-smile-layout { grid-template-columns: 1fr; gap: 32px; }
+  .everyday-smile-picture { max-width: 420px; }
+  .everyday-smile-copy { max-width: 62ch; margin: 0 auto; }
+  .everyday-smile-copy h2 { max-width: 22ch; }
+}
 .facts-section { background: linear-gradient(180deg, #fffbeb, #fff1f2, #fffbeb); }
 .facts-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); align-items: start; gap: 20px; }
 .fact-card { border: 1px solid var(--bag-line); background: #ffffffec; border-radius: 22px; overflow: hidden; color: var(--bag-ink); box-shadow: 0 3px 12px #92400e08; }

@@ -16,6 +16,7 @@ import ShareSection from './ShareSection.js';
 import LaughterTherapy from './LaughterTherapy.js';
 import FooterSection from './FooterSection.js';
 import VisitorStories from '../moderation/VisitorStories.js';
+import EverydaySmileSection from './EverydaySmileSection.js';
 
 
 
@@ -61,7 +62,7 @@ const __exports = (() => {
           videoUrl: __props.videoUrl,
           directMp4Url: __props.directMp4Url,
           videoPoster: __props.videoPoster
-        }, null, 8, ["videoUrl", "directMp4Url", "videoPoster"]), _createVNode(StorySection), _createVNode(StoriesSection), _createVNode(VisitorStories), _createVNode(FunFactsSection), _createVNode(MailSection), _createVNode(SymptomsSection), _createVNode(RecipeSection), _createVNode(AbsurdLab), _createVNode(UsefulTips), _createVNode(HarmfulTips), _createVNode(ShareSection), _createVNode(LaughterTherapy), _createVNode(FooterSection)]);
+        }, null, 8, ["videoUrl", "directMp4Url", "videoPoster"]), _createVNode(StorySection), _createVNode(EverydaySmileSection), _createVNode(StoriesSection), _createVNode(VisitorStories), _createVNode(FunFactsSection), _createVNode(MailSection), _createVNode(SymptomsSection), _createVNode(RecipeSection), _createVNode(AbsurdLab), _createVNode(UsefulTips), _createVNode(HarmfulTips), _createVNode(ShareSection), _createVNode(LaughterTherapy), _createVNode(FooterSection)]);
       };
     }
   });
