@@ -1,0 +1,91 @@
+{
+  "title": "Котёнок и непослушный блинчик",
+  "genre": "Funny kids 3D animation",
+  "duration_seconds": 15,
+  "aspect_ratio": "9:16",
+  "resolution": "1080x1920",
+  "fps": 24,
+  "style": {
+    "visual": "High-quality stylized 3D cartoon animation, adorable rounded characters, colorful family-friendly comedy, soft fluffy fur, expressive eyes, squash-and-stretch animation, cinematic lighting",
+    "mood": "Playful, silly, cheerful, heartwarming",
+    "color_palette": "Pastel yellow, peach, mint green, warm orange"
+  },
+  "characters": [
+    {
+      "name": "Пончик",
+      "type": "Kitten",
+      "appearance": "Tiny chubby orange kitten, huge emerald eyes, fluffy cheeks, short paws, pink nose, oversized turquoise chef hat",
+      "personality": "Clumsy, curious, dramatic and adorable"
+    },
+    {
+      "name": "Блинчик",
+      "type": "Animated pancake",
+      "appearance": "Golden fluffy pancake with tiny cartoon eyes, a cheeky smile and little springy legs",
+      "personality": "Mischievous and playful"
+    }
+  ],
+  "environment": {
+    "location": "Cozy miniature cartoon kitchen",
+    "details": "Sunny window, pastel cabinets, wooden breakfast table, colorful dishes, soft morning sunlight"
+  },
+  "scenes": [
+    {
+      "time": "0-3s",
+      "action": "A chubby orange kitten proudly places a giant golden pancake on a plate. The pancake suddenly opens two tiny eyes and winks at the camera.",
+      "camera": "Medium shot, quick comedic zoom onto the pancake",
+      "sound": "Pop! Funny magical sparkle"
+    },
+    {
+      "time": "3-6s",
+      "action": "The pancake sprouts tiny legs, jumps off the plate and runs across the table. The kitten gasps, eyes expanding comically, then lunges forward and misses.",
+      "camera": "Fast side tracking shot",
+      "sound": "Boing! Squeaky footsteps, funny gasp"
+    },
+    {
+      "time": "6-10s",
+      "action": "The pancake leaps onto the kitten's head like a hat. The kitten spins in confusion, slips harmlessly on a soft kitchen mat and lands sitting inside a huge mixing bowl.",
+      "camera": "Dynamic medium shot with playful camera movement",
+      "sound": "Whoosh! Boing! Gentle cartoon drum roll"
+    },
+    {
+      "time": "10-13s",
+      "action": "The pancake jumps down, pulls out a tiny strawberry and gently places it on the kitten's nose. The kitten goes cross-eyed trying to look at it.",
+      "camera": "Close-up of the kitten's hilarious expression",
+      "sound": "Tiny squeak, playful musical pause"
+    },
+    {
+      "time": "13-15s",
+      "action": "The kitten sneezes! The strawberry flies upward and lands perfectly on the pancake. The pancake proudly poses like a champion. The kitten bursts into a happy giggle.",
+      "camera": "Close-up, freeze-frame on the funniest expression",
+      "sound": "Achoo! Pop! Cheerful comedic finale"
+    }
+  ],
+  "audio": {
+    "music": "Upbeat whimsical cartoon music with pizzicato strings, xylophone and playful percussion",
+    "sound_effects": "Cartoon boings, pops, squeaks, soft whooshes, funny kitten sneeze",
+    "dialogue": "No spoken dialogue",
+    "ending": "Short funny musical sting"
+  },
+  "animation_rules": [
+    "Keep character designs consistent in every scene",
+    "Use exaggerated but charming facial expressions",
+    "Use smooth squash-and-stretch cartoon physics",
+    "Make visual comedy easy to understand without dialogue",
+    "Every scene must have a clear humorous action",
+    "Safe, joyful and suitable for young children"
+  ],
+  "negative_prompt": [
+    "Photorealism",
+    "Scary expressions",
+    "Violence",
+    "Injuries",
+    "Extra limbs",
+    "Deformed paws",
+    "Character identity changes",
+    "Flickering",
+    "Distorted faces",
+    "Unwanted text",
+    "Watermarks",
+    "Dark atmosphere"
+  ]
+}
